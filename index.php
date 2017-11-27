@@ -18,7 +18,7 @@ and open the template in the editor.
             Email <br><input name="email" type="email" /> <br>
             Mot de passe <br> <input name="password" type="password"  pattern="(?=.*[a-z])(?=.*[A-Z]).{5,}"/> <br>
             * Au moins 5 caracteres, une majuscule, et une miniscule<br>
-            <button type="submit" method="post">S'enregistrer</button> <br>
+            <button>S'enregistrer</button> <br>
             
             
         </form>
