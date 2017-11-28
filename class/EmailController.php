@@ -5,12 +5,12 @@ final class Email
 {
     private $email;
 
-    private function __construct($email)
+ /*   private function __construct($email)
     {
         $this->ensureIsValidEmail($email);
 
         $this->email = $email;
-    }
+    }*/
 
     public static function fromString($email)
     {

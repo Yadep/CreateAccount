@@ -16,15 +16,17 @@ and open the template in the editor.
         //pattern="(?=.*[a-z])(?=.*[A-Z]).{5,}" mdp
         //$mdpregex = "#(?=.*[a-z])(?=.*[A-Z]).{5,}#";
        // $emailregex = "#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#";
-        if($email->ensureIsValidEmail($_POST['email'])||$pdw->ensureIsValidPassword($_POST['password']))//&&preg_match(,$_POST['password']))
+        if(isset($_POST['email'])||isset($_POST['password']))
         {
-            echo "Vous etes inscrit";
+            if($email->ensureIsValidEmail($_POST['email'])||$pdw->ensureIsValidPassword($_POST['password']))//&&preg_match(,$_POST['password']))
+            {
+                echo "Vous etes inscrit";
+            }
+            else
+            {
+                echo "Erreur dans l'email ou le mot de passe";
+            }
         }
-        else
-        {
-            echo "Erreur dans l'email ou le mot de passe";
-        }
-        
  
         
         
