@@ -5,7 +5,32 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <?php
+        
+        include('class/EmailController.php');
+        include('class/PasswordController.php');
+        
+        $email = new Email;
+        $pdw = new Password;
+        
+        //pattern="(?=.*[a-z])(?=.*[A-Z]).{5,}" mdp
+        //$mdpregex = "#(?=.*[a-z])(?=.*[A-Z]).{5,}#";
+       // $emailregex = "#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#";
+        if($email->ensureIsValidEmail($_POST['email'])||$pdw->ensureIsValidPassword($_POST['password']))//&&preg_match(,$_POST['password']))
+        {
+            echo "Vous etes inscrit";
+        }
+        else
+        {
+            echo "Erreur dans l'email ou le mot de passe";
+        }
+        
+ 
+        
+        
+    ?>
     <head>
+        
       <title>Creation de compte</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,19 +47,5 @@ and open the template in the editor.
             
             
         </form>
-        <?php
-        //pattern="(?=.*[a-z])(?=.*[A-Z]).{5,}" mdp
-        $mdpregex = "#(?=.*[a-z])(?=.*[A-Z]).{5,}#";
-        $emailregex = "#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#";
-        if(!preg_match($emailregex,$_POST['email'])||!preg_match($mdpregex, $_POST['password']))//&&preg_match(,$_POST['password']))
-        {
-            echo "Email incorrecte ou mot de passe incorrect";
-        }
-        elseif(preg_match($emailregex,$_POST['email'])&& preg_match($mdpregex, $_POST['password']))//&&preg_match(,$_POST['password']))
-        {
-            echo "Vous etes inscrit";
-        }
-        
-        ?>
     </body>
 </html>
