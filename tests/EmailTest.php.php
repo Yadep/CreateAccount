@@ -2,11 +2,11 @@
 
 
 use PHPUnit\Framework\TestCase;
-
+require_once '../class/EmailController.php';
 /**
  * @covers Email
  */
-final class EmailTest extends TestCase
+final class EmailTest extends PHPUnit_Framework_TestCase
 {
     public function testCanBeCreatedFromValidEmailAddress()
     {
@@ -28,6 +28,14 @@ final class EmailTest extends TestCase
         $this->assertEquals(
             'user@example.com',
             Email::fromString('user@example.com')
+        );
+    }
+    
+    public function testAdd()
+    {
+        $this->assertEquals(
+          2,
+          $this->object->add(1, 1)
         );
     }
 }

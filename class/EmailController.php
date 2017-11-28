@@ -33,6 +33,11 @@ final class Email
             );
         }
     }
+    
+    public function add($a, $b)
+    {
+        return $a + $b;
+    }
 }
 
 ?>
